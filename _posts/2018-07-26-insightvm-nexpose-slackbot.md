@@ -5,6 +5,7 @@ date: 2018-07-26 23:59
 comments: true
 author: Trevor Steen
 published: true
+authorIsRacker: true
 categories:
   - Security
   - Automation
