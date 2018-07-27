@@ -57,4 +57,3 @@ Well, here's the link.
 https://github.com/rackerlabs/insightvm_slackbot
 
 Post adapted and edited from https://ratil.life/nexpose-slack-bot/
->>>>>>> upstream/master
