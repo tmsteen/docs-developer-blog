@@ -15,7 +15,7 @@ categories:
 
  Given the prevalence of Slack and associated bots, I thought it would be a good idea to try to write my own for scanning. Enter the InsightVM Slack Bot!
 
- <!-- more -->
+<!-- more -->
 
 # Ruby Version
 Initially, I wrote the entire bot in Ruby using the [Ruby Slack Client](https://github.com/slack-ruby/slack-ruby-client) and the [Nexpose API Ruby Gem](https://github.com/rapid7/nexpose-client).  At the time, the Nexpose Gem was the preferred (and only supported) way to interact with the Nexpose API, which was the primary mechanism for initiating scans. This approach worked...mostly, but there were a few problems:
@@ -24,7 +24,7 @@ Initially, I wrote the entire bot in Ruby using the [Ruby Slack Client](https://
 * In order to rate limit the scans, I needed a queuing system, so I ended up using the [Ruby Resque Gem](https://github.com/resque/resque). This worked really well for my purposes and even provided a pretty cool web interface for tracking jobs. The downside was that this also required me to run a [Redis database](https://redis.io/) to house the queue information. This was just an additional dependency.
 * Due to (probably my lack of coding expertise) the structure of the queue mechanism and the tasks I was trying to accomplish, the program structure was pretty ugly. I had a base script that ended up calling three other Ruby scripts that operated two different queues for scan initiation and scan status tracking. I could only figure out how to run the script directly (not as a service or anything else). This made debugging difficult and was definitely not the most user-friendly thing in the world.
 
-Python Version
+# Python Version
 Then [Rapid7](https://www.rapid7.com/) released [version 3 of the InsightVM API](https://help.rapid7.com/insightvm/en-us/api/index.html) as a RESTful API, after they rebranded Nexpose as InsightVM. This update freed me from the Ruby requirement, and after a few months of debating, I finally decided to port the bot over to Python (3 of course). This decision was also largely due to the work my team did on developing an InsightVM Helpers class to assist in interacting with the API.
 
 The Python version of the bot differs from the Ruby version in a few key ways:
@@ -57,3 +57,4 @@ Well, here's the link.
 https://github.com/rackerlabs/insightvm_slackbot
 
 Post adapted and edited from https://ratil.life/nexpose-slack-bot/
+>>>>>>> upstream/master
